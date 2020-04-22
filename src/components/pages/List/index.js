@@ -25,7 +25,12 @@ const List = () => {
       : setListPrint(...list.filter(listItem => listItem.listItem !== item.id));
   };
 
-  return <ListItems data={list} />;
+  return (
+    <>
+      <ListItems data={list} />
+      <CreateItems onCreate={setList} />
+    </>
+  );
 };
 
 List.defaultProps = {};

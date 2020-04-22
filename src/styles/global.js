@@ -1,4 +1,5 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
+import { color } from './variables';
 
 const rotate = keyframes`
   0% {
@@ -23,13 +24,12 @@ html, body, #root{
 }
 
 body{
-  background-color: #fff;
+  background-color: ${color.white};
   -webkit-font-smoothing: antialiased !important;
-  font-size: 20px;
 }
 
 body, input, button{
-  color: #000;
+  color: ${color.black};
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
 }
