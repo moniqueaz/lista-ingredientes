@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Search from './components/pages/Search';
-import Main from './components/pages/Main';
+import List from './components/pages/List';
+import Print from './components/pages/Print';
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Search} />
-        <Route path="/list" component={Main} />
+        <Route path="/" exact component={List} />
+        <Route path="/list" component={List} />
+        <Route path="/print" component={Print} />
       </Switch>
     </BrowserRouter>
   );

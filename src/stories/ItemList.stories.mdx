@@ -1,0 +1,30 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import ItemList from '../components/molecules/ItemList';
+import { withKnobs, object } from '@storybook/addon-knobs';
+
+<Meta title="Molecules/ItemList" component={ItemList} />
+
+# ItemList
+
+Documentação Molecula ItemList
+
+<Preview>
+  <Story name="default">
+    <ItemList data={{name: 'Macarrão'}}/>
+  </Story>
+</Preview>
+
+
+<br/>
+
+### Propriedades
+
+<Props of={ItemList} />
+
+<br/>
+
+### Playground
+
+<Story name="knobs" parameters={{ decorators: [withKnobs] }}>
+  <ItemList data={object('data', {name: 'macarrão'})}/>
+</Story>

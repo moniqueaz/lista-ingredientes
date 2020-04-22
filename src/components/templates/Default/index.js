@@ -1,9 +1,14 @@
 import React from 'react';
 
-import {} from './styles';
+import { Header, Container, Content } from './styles';
 
 const Default = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <Container>
+      <Header>List</Header>
+      <Content>{children}</Content>
+    </Container>
+  );
 };
 
 Default.defaultProps = {};

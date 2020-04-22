@@ -1,5 +1,4 @@
 import { createGlobalStyle, keyframes } from 'styled-components';
-import Monaco from '../assets/fonts/Monaco.woff';
 
 const rotate = keyframes`
   0% {
@@ -11,13 +10,6 @@ const rotate = keyframes`
 `;
 
 export default createGlobalStyle`
-
-@font-face {
-  font-family: 'Monaco';
-  font-style: normal;
-  font-weight: normal;
-  src: local('Monaco'), url(${Monaco}) format('woff');
-}
 
 *{
   margin: 0;
@@ -39,7 +31,7 @@ body{
 body, input, button{
   color: #000;
   font-size: 20px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 li{
@@ -50,6 +42,7 @@ button{
   cursor: pointer;
   border: 0;
   border-radius: 0;
+  background-color: transparent;
 }
 
 .loop {
