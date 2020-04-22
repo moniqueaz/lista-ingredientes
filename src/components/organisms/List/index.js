@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import Item from '../../molecules/ItemList';
+import InsertItem from '../../molecules/InsertItem';
 
 import { ListItems, ItemList } from './styles';
 
@@ -11,6 +12,7 @@ const List = ({ data, showMore }) => {
   const groupBy = data.length;
   const [itemsLength, setItemsLength] = useState(groupBy);
   const [showLoadMore, setShowLoadMore] = useState(showMore);
+  const [id, setId] = useState('');
 
   const handleLoadMore = () => {
     if (showMoreItems()) {
@@ -38,7 +40,23 @@ const List = ({ data, showMore }) => {
 
   const handleDelete = () => {};
 
-  const handleEdit = () => {};
+  const handleEdit = id => {
+    setId(id);
+  };
+
+  const hendleCreate = itemEdit => {
+    setId('');
+    const newList = items.map(item => {
+      if (item.id === itemEdit.id) {
+        return {
+          ...itemEdit,
+        };
+      } else {
+        return item;
+      }
+    });
+    setItems([...newList]);
+  };
 
   const handleCheck = () => {};
 
@@ -53,12 +71,17 @@ const List = ({ data, showMore }) => {
               index={index}
               key={item.id}
             >
-              <Item
-                data={item}
-                onDelete={handleDelete}
-                onEdit={handleEdit}
-                onCheck={handleCheck}
-              />
+              {console.log('id: ', id)}
+              {item.id === id ? (
+                <InsertItem data={item} onCreate={hendleCreate} />
+              ) : (
+                <Item
+                  data={item}
+                  onDelete={handleDelete}
+                  onEdit={handleEdit}
+                  onCheck={handleCheck}
+                />
+              )}
             </ItemList>
           )
         );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../organisms/List';
-import CreateItem from '../../molecules/CreateItem';
+import InsertItem from '../../molecules/InsertItem';
 
 import {} from './styles';
 
@@ -22,7 +22,7 @@ const List = () => {
   return (
     <>
       <ListItems data={list} />
-      <CreateItem onCreate={handleList} />
+      <InsertItem onCreate={handleList} />
     </>
   );
 };

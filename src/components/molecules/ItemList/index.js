@@ -5,7 +5,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Item, Name, Icons, Input, Button } from './styles';
 
 const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
-  const { name } = data;
+  const { name, id } = data;
 
   const handleChecked = e => {
     onCheck(e.target.checked);
@@ -16,7 +16,8 @@ const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
       <Input type="checkbox" onChange={e => handleChecked(e)} name={name} />
       <Name>{name}</Name>
       <Icons>
-        <Button type="button" onClick={onEdit}>
+        {console.log('id: ', id)}
+        <Button type="button" onClick={() => onEdit(id)}>
           <FaEdit />
         </Button>
         <Button type="button" onClick={onDelete}>
