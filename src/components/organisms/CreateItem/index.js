@@ -16,24 +16,26 @@ import {
 const CreateItem = ({ onCreate }) => {
   const [ingredient, setIngredient] = useState('');
   const [metric, setMetric] = useState('');
+  const [km, setKm] = useState(false);
+  const [ml, setMl] = useState(false);
 
-  const handleMetric = e => {
+  const handleMetric = (e, name) => {
     const value = e.target.value;
-    setMetric(...value);
+    setMetric(value);
+    name === 'km' ? setKm(true) : setMl(true);
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(' Item : ', {
-      id: uuid(),
-      name: ingredient,
-      metric: metric,
-    });
     onCreate({
       id: uuid(),
       name: ingredient,
-      metric: metric,
+      metric: metric.value,
     });
+    setMetric(metric);
+    setIngredient('');
+    setMl(false);
+    setKm(false);
   };
 
   return (
@@ -43,6 +45,7 @@ const CreateItem = ({ onCreate }) => {
         onChange={e => setIngredient(e.target.value)}
         required
         placeholder="Insira um ingrediente"
+        value={ingredient}
       />
       <Metric>
         <MetricItem>
@@ -52,7 +55,8 @@ const CreateItem = ({ onCreate }) => {
             name="metric"
             value="km"
             required
-            onChange={e => handleMetric(e)}
+            onChange={e => handleMetric(e, 'km')}
+            checked={km}
           />
           <Label htmlFor="km">km</Label>
         </MetricItem>
@@ -63,7 +67,8 @@ const CreateItem = ({ onCreate }) => {
             name="metric"
             value="ml"
             required
-            onChange={e => handleMetric(e)}
+            onChange={e => handleMetric(e, 'ml')}
+            checked={ml}
           />
           <Label htmlFor="ml">ml</Label>
         </MetricItem>

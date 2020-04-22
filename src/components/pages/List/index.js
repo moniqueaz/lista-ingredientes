@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../organisms/List';
+import CreateItem from '../../organisms/CreateItem';
 
 import {} from './styles';
 
@@ -8,16 +9,9 @@ const List = () => {
   const [list, setList] = useState([]);
   const [listPrin, setListPrint] = useState([]);
 
-  useEffect(() => {
-    setList([
-      {
-        name: 'Macarrã',
-      },
-      {
-        name: 'Café',
-      },
-    ]);
-  }, []);
+  const handleList = item => {
+    setList([...list, item]);
+  };
 
   const handleListPrint = (isChecked, item) => {
     isChecked
@@ -28,7 +22,7 @@ const List = () => {
   return (
     <>
       <ListItems data={list} />
-      <CreateItems onCreate={setList} />
+      <CreateItem onCreate={handleList} />
     </>
   );
 };
