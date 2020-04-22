@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ListItems from '../../organisms/List';
-import CreateItem from '../../organisms/CreateItem';
+import CreateItem from '../../molecules/CreateItem';
 
 import {} from './styles';
 
