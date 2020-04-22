@@ -26,7 +26,8 @@ const List = ({ data, showMore }) => {
 
   useEffect(() => {
     setShowLoadMore(showMore);
-  }, [showMore]);
+    setItems(data);
+  }, [showMore, data]);
 
   useEffect(() => {
     const showItemsLength = groupBy * page;
@@ -44,7 +45,6 @@ const List = ({ data, showMore }) => {
   return (
     <ListItems>
       {items.map((item, index) => {
-        console.log('itemsLength: ', itemsLength);
         return (
           index < itemsLength && (
             <ItemList

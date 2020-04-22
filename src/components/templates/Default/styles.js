@@ -10,6 +10,4 @@ export const Header = styled.div`
   background-color: yellow;
 `;
 
-export const Content = styled.div`
-  background-color: blue;
-`;
+export const Content = styled.div``;
