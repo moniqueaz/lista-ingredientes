@@ -1,0 +1,33 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import ListItem from '../components/organisms/List';
+import { withKnobs, object, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Organisms/ListItem" component={ListItem} />
+
+# ListItem
+
+Documentação Molecula ListItem
+
+<Preview>
+  <Story name="default">
+    <ListItem data={[{name: 'Macarrão'}, {name: 'Feijão'}]}/>
+  </Story>
+</Preview>
+
+
+<br/>
+
+### Propriedades
+
+<Props of={ListItem} />
+
+<br/>
+
+### Playground
+
+<Story name="knobs" parameters={{ decorators: [withKnobs] }}>
+  <ListItem
+    data={object('data', [{name: 'Macarrão'}, {name: 'Feijão'}])}
+    showMore={boolean('showMore', false)}
+  />
+</Story>
