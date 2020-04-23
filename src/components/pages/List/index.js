@@ -10,11 +10,28 @@ import {} from './styles';
 const List = () => {
   const dispatch = useDispatch();
   const list = useSelector(state => state.list);
-  console.log('list: ', list);
 
   const handleList = item => {
     dispatch(MapDispachToActions.mountToList(item));
   };
+
+  const handleSetList = toList => {
+    dispatch(MapDispachToActions.setToList(toList));
+  };
+
+  const handleLocalstorage = toList => {
+    // localStorage.setItem('list', null);
+    localStorage.setItem('list', JSON.stringify(toList));
+  };
+
+  useEffect(() => {
+    if (list.length) {
+      handleLocalstorage(list);
+    } else {
+      const storage = JSON.parse(localStorage.getItem('list'));
+      storage && handleSetList(storage);
+    }
+  }, [list]);
 
   return (
     <>

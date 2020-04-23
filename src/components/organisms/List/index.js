@@ -21,6 +21,10 @@ const List = ({ showMore }) => {
     dispatch(MapDispachToActions.editToList(item));
   };
 
+  const handlePrint = item => {
+    dispatch(MapDispachToActions.editToPrint(item));
+  };
+
   const handleLoadMore = () => {
     if (showMoreItems()) {
       showMoreItems();
@@ -56,7 +60,10 @@ const List = ({ showMore }) => {
     handleToEdit(itemEdit);
   };
 
-  const handleCheck = () => {};
+  const handleCheck = item => {
+    console.log('item: ', item);
+    handlePrint(item);
+  };
 
   return (
     <ListItems>
@@ -69,7 +76,6 @@ const List = ({ showMore }) => {
               index={index}
               key={item.id}
             >
-              {console.log('id: ', id)}
               {item.id === id ? (
                 <InsertItem data={item} onCreate={hendleCreate} />
               ) : (

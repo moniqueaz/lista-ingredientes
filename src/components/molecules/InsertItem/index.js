@@ -14,7 +14,6 @@ import {
 } from './styles';
 
 const InsertItem = ({ onCreate, data }) => {
-  console.log('data: ', data);
   const [ingredient, setIngredient] = useState('');
   const [metric, setMetric] = useState('kg');
   const [radio, setRadio] = useState({ value: 'kg', checked: true });
@@ -35,7 +34,7 @@ const InsertItem = ({ onCreate, data }) => {
       name: ingredient,
       metric: metric,
     });
-    setMetric('');
+    setMetric('kg');
     setIngredient('');
     setRadio({ value: 'kg', checked: true });
   };
@@ -61,26 +60,26 @@ const InsertItem = ({ onCreate, data }) => {
         <MetricItem checked={radio.value === 'kg' && radio.checked}>
           <Radio
             type="radio"
-            id="kg"
+            id={data.id ? `kg-${data.id}` : 'kg'}
             name="metric"
             value="kg"
             required
             onChange={e => handleMetric(e)}
             checked={radio.value === 'kg' ? radio.checked : false}
           />
-          <Label htmlFor="kg">kg</Label>
+          <Label htmlFor={data.id ? `kg-${data.id}` : 'kg'}>kg</Label>
         </MetricItem>
         <MetricItem checked={radio.value === 'ml' && radio.checked}>
           <Radio
             type="radio"
-            id="ml"
+            id={data.id ? `ml-${data.id}` : 'ml'}
             name="metric"
             value="ml"
             required
             onChange={e => handleMetric(e)}
             checked={radio.value === 'ml' ? radio.checked : false}
           />
-          <Label htmlFor="ml">ml</Label>
+          <Label htmlFor={data.id ? `ml-${data.id}` : 'ml'}>ml</Label>
         </MetricItem>
       </Metric>
       <Button type="submit">

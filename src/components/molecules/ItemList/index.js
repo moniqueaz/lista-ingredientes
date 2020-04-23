@@ -7,16 +7,15 @@ import { Item, Name, Icons, Input, Button } from './styles';
 const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
   const { name, id } = data;
 
-  const handleChecked = e => {
-    onCheck(e.target.checked);
+  const handleChecked = item => {
+    onCheck(item);
   };
 
   return (
     <Item>
-      <Input type="checkbox" onChange={e => handleChecked(e)} name={name} />
+      <Input type="checkbox" onChange={e => handleChecked(data)} name={name} />
       <Name>{name}</Name>
       <Icons className="item__icon">
-        {console.log('id: ', id)}
         <Button
           type="button"
           onClick={() => onEdit(id)}
