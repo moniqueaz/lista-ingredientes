@@ -15,12 +15,16 @@ const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
     <Item>
       <Input type="checkbox" onChange={e => handleChecked(e)} name={name} />
       <Name>{name}</Name>
-      <Icons>
+      <Icons className="item__icon">
         {console.log('id: ', id)}
-        <Button type="button" onClick={() => onEdit(id)}>
+        <Button
+          type="button"
+          onClick={() => onEdit(id)}
+          className="item__icon--edit"
+        >
           <FaEdit />
         </Button>
-        <Button type="button" onClick={onDelete}>
+        <Button type="button" onClick={onDelete} className="item__icon--delete">
           <FaTrash />
         </Button>
       </Icons>

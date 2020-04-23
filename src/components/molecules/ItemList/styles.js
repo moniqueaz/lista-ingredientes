@@ -1,16 +1,32 @@
 import styled from 'styled-components';
+import { color } from '../../../styles/variables';
 
 export const Item = styled.div`
   width: auto;
-  border: 1px solid black;
 
-  padding: 10px;
+  padding: 15px 10px;
   border-radius: 4px;
 
   display: inline-block;
   display: flex;
   justify-contente: flex-start;
   align-items: center;
+  background-color: ${color.white};
+
+  color: ${color.blue};
+  text-transform: uppercase;
+  font-style: italic;
+
+  .item {
+    &__icon {
+      &--edit {
+        color: ${color.blue};
+      }
+      &--delete {
+        color: ${color.red};
+      }
+    }
+  }
 `;
 
 export const Name = styled.div`

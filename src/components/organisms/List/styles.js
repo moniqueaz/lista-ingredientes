@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { color } from '../../../styles/variables';
 
 const animateIn = keyframes`
   from {
@@ -11,7 +12,9 @@ const animateIn = keyframes`
   }
 `;
 
-export const ListItems = styled.ul``;
+export const ListItems = styled.ul`
+  margin-bottom: 30px;
+`;
 
 export const ItemList = styled.li`
   animation-name: ${animateIn};
@@ -26,6 +29,7 @@ export const ItemList = styled.li`
   height: 100%;
 
   & + li {
-    margin-top: 10px;
+    // margin-top: 10px;
+    border-top: 1px solid ${color.yellowDark};
   }
 `;

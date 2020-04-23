@@ -49,8 +49,8 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   svg {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
 `;
 

@@ -14,8 +14,9 @@ import {
 } from './styles';
 
 const InsertItem = ({ onCreate, data }) => {
+  console.log('data: ', data);
   const [ingredient, setIngredient] = useState('');
-  const [metric, setMetric] = useState('');
+  const [metric, setMetric] = useState('kg');
   const [radio, setRadio] = useState({ value: 'kg', checked: true });
 
   const handleMetric = e => {
@@ -36,7 +37,7 @@ const InsertItem = ({ onCreate, data }) => {
     });
     setMetric('');
     setIngredient('');
-    setRadio(false);
+    setRadio({ value: 'kg', checked: true });
   };
 
   useEffect(() => {
