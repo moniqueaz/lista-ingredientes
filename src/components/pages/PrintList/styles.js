@@ -2,7 +2,23 @@ import styled from 'styled-components';
 import { color } from '../../../styles/variables';
 
 export const Container = styled.div`
-  wifht: 100%;
+  width: 100%;
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: ${color.blue};
+    color: ${color.white};
+  }
 `;
 
 export const List = styled.ul`

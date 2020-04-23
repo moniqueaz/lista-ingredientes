@@ -1,19 +1,24 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { FaPrint } from 'react-icons/fa';
 
-import { Container, List, Item } from './styles';
+import { Container, List, Item, Header } from './styles';
 
 const PrintList = () => {
   const print = useSelector(state => state.print);
 
-  useEffect(() => {
-    console.log('print: ', print);
-  }, [print]);
-
   return (
     <Container>
-      <h1>Print</h1>
+      <Header>
+        <h2>Imprimir Lista</h2>
+        {print.length !== 0 && (
+          <Link to="/print">
+            <FaPrint />
+          </Link>
+        )}
+      </Header>
       <List>
         {print.map(item => {
           return <Item key={item.id}>{item.name}</Item>;
