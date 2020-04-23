@@ -1,0 +1,30 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import InsertItem from '../components/molecule/InsertItem';
+import { withKnobs, object, boolean } from '@storybook/addon-knobs';
+
+<Meta title="Molecules/InsertItem" component={InsertItem} />
+
+# InsertItem
+
+Documentação Molecula InsertItem
+
+<Preview>
+  <Story name="default">
+    <InsertItem />
+  </Story>
+</Preview>
+
+
+<br/>
+
+### Propriedades
+
+<Props of={InsertItem} />
+
+<br/>
+
+### Playground
+
+<Story name="knobs" parameters={{ decorators: [withKnobs] }}>
+  <InsertItem/>
+</Story>

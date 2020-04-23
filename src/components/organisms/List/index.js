@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { FaEdit, FaTrash } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import * as MapDispachToActions from '../../../store/actions/actionCreators';
 import Item from '../../molecules/ItemList';
 import InsertItem from '../../molecules/InsertItem';
 
 import { ListItems, ItemList } from './styles';
 
 const List = ({ data, showMore }) => {
-  const [items, setItems] = useState(data);
+  const dispatch = useDispatch();
+  const list = useSelector(state => state.list);
+  const [items, setItems] = useState(list);
   const [page, setPage] = useState(1);
-  const groupBy = data.length;
+  const groupBy = list.length;
   const [itemsLength, setItemsLength] = useState(groupBy);
   const [showLoadMore, setShowLoadMore] = useState(showMore);
   const [id, setId] = useState('');
+
+  const handleToEdit = item => {
+    dispatch(MapDispachToActions.editToList(item));
+  };
 
   const handleLoadMore = () => {
     if (showMoreItems()) {
@@ -28,8 +35,8 @@ const List = ({ data, showMore }) => {
 
   useEffect(() => {
     setShowLoadMore(showMore);
-    setItems(data);
-  }, [showMore, data]);
+    setItems(list);
+  }, [showMore, list]);
 
   useEffect(() => {
     const showItemsLength = groupBy * page;
@@ -46,16 +53,7 @@ const List = ({ data, showMore }) => {
 
   const hendleCreate = itemEdit => {
     setId('');
-    const newList = items.map(item => {
-      if (item.id === itemEdit.id) {
-        return {
-          ...itemEdit,
-        };
-      } else {
-        return item;
-      }
-    });
-    setItems([...newList]);
+    handleToEdit(itemEdit);
   };
 
   const handleCheck = () => {};
