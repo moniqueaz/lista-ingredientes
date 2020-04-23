@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { FaPrint } from 'react-icons/fa';
+import { format } from 'date-fns';
 import * as MapDispachToActions from '../../../store/actions/actionCreators';
 
 import {
@@ -37,19 +39,28 @@ const Print = () => {
       {print.length !== 0 && (
         <Container>
           <Form onSubmit={handleSubmit}>
-            <Button type="submit">Imprimir</Button>
+            <Button type="submit">
+              <span>Imprimir</span>
+              <FaPrint />
+            </Button>
             <List>
               {print.map(item => {
                 return (
                   <Item>
-                    <Name>{item.name}</Name>
-                    <div className="print__metric">
-                      <Input type="number" required />
-                      <Metric>{item.metric}</Metric>
+                    <div className="print__item">
+                      <Name>{item.name}</Name>
+                      <div className="print__metric">
+                        <Input type="number" required />
+                        <Metric>{item.metric}</Metric>
+                      </div>
                     </div>
                   </Item>
                 );
               })}
+              <Item className="print__item print__item--summary">
+                <p>Items: {print.length}</p>
+                <p>Data: {format(new Date(), 'dd/MM/yyyy')}</p>
+              </Item>
             </List>
           </Form>
         </Container>

@@ -6,14 +6,21 @@ import { Item, Name, Icons, Input, Button } from './styles';
 
 const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
   const { name, id } = data;
+  const [check, setCheck] = useState(false);
 
   const handleChecked = item => {
+    setCheck(!check);
     onCheck(item);
   };
 
   return (
-    <Item>
-      <Input type="checkbox" onChange={e => handleChecked(data)} name={name} />
+    <Item htmlFor={id} check={check}>
+      <Input
+        type="checkbox"
+        onChange={e => handleChecked(data)}
+        name={name}
+        id={id}
+      />
       <Name>{name}</Name>
       <Icons className="item__icon">
         <Button

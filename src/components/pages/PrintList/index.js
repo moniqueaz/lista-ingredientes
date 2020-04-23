@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { FaPrint } from 'react-icons/fa';
 
-import { Container, List, Item, Header } from './styles';
+import { Container, List, Item, Header, Total } from './styles';
 
 const PrintList = () => {
   const print = useSelector(state => state.print);
@@ -24,6 +24,9 @@ const PrintList = () => {
           return <Item key={item.id}>{item.name}</Item>;
         })}
       </List>
+      <Total>
+        {print.length} {print.length === 1 ? 'item' : 'items'}
+      </Total>
     </Container>
   );
 };

@@ -5,10 +5,16 @@ export const Container = styled.div`
   width: 100%;
 `;
 
+export const Total = styled.div`
+  width: 100%;
+  padding-top: 25px;
+`;
+
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  height: 35px;
 
   a {
     display: flex;
@@ -22,7 +28,9 @@ export const Header = styled.div`
 `;
 
 export const List = styled.ul`
-  margin-left: 20px;
+  padding-left: 20px;
+  height: calc(100vh - 224px);
+  overflow-y: scroll;
 `;
 
 export const Item = styled.li`

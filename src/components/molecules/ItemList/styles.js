@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { color } from '../../../styles/variables';
 
-export const Item = styled.div`
+export const Item = styled.label`
   width: auto;
 
   padding: 15px 10px;
-  border-radius: 4px;
 
   display: inline-block;
   display: flex;
@@ -15,6 +14,9 @@ export const Item = styled.div`
   color: ${color.blue};
   text-transform: uppercase;
   font-style: italic;
+
+  background-color: ${props => props.check && color.grayDarker};
+  font-weight: ${props => props.check && 'bold'};
 
   .item {
     &__icon {
@@ -39,6 +41,7 @@ export const Icons = styled.div`
 
 export const Input = styled.input`
   margin-right: 10px;
+  -webkit-appearance: none;
 `;
 
 export const Button = styled.button`

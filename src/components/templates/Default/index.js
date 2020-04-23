@@ -9,7 +9,7 @@ const Default = ({ children }) => {
   return (
     <Container>
       <Header>
-        <Title>List Ingredientes</Title>
+        <Title>Lista de Ingredientes</Title>
         <Data>
           <span>Data: </span>
           {date}
