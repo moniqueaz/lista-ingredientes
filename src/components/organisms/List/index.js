@@ -7,7 +7,7 @@ import InsertItem from '../../molecules/InsertItem';
 
 import { ListItems, ItemList } from './styles';
 
-const List = ({ data, showMore }) => {
+const List = ({ showMore }) => {
   const dispatch = useDispatch();
   const list = useSelector(state => state.list);
   const [items, setItems] = useState(list);
@@ -90,15 +90,10 @@ const List = ({ data, showMore }) => {
 };
 
 List.defaultProps = {
-  data: [],
   showMore: false,
 };
 
 List.propTypes = {
-  /**
-   * Essa propriedade é responsavel por setar a lista de items
-   */
-  data: PropTypes.array,
   /**
    * Essa propriedade é responsavel por informar se averá o botão de ver mais ou não.
    * Ele só aparece se realmente houver mais items para serem carregados.

@@ -16,7 +16,7 @@ import {
 const InsertItem = ({ onCreate, data }) => {
   const [ingredient, setIngredient] = useState('');
   const [metric, setMetric] = useState('');
-  const [radio, setRadio] = useState({ value: '', checked: false });
+  const [radio, setRadio] = useState({ value: 'kg', checked: true });
 
   const handleMetric = e => {
     const value = e.target.value;
@@ -57,19 +57,19 @@ const InsertItem = ({ onCreate, data }) => {
         value={ingredient}
       />
       <Metric>
-        <MetricItem>
+        <MetricItem checked={radio.value === 'kg' && radio.checked}>
           <Radio
             type="radio"
-            id="km"
+            id="kg"
             name="metric"
-            value="km"
+            value="kg"
             required
             onChange={e => handleMetric(e)}
-            checked={radio.value === 'km' ? radio.checked : false}
+            checked={radio.value === 'kg' ? radio.checked : false}
           />
-          <Label htmlFor="km">km</Label>
+          <Label htmlFor="kg">kg</Label>
         </MetricItem>
-        <MetricItem>
+        <MetricItem checked={radio.value === 'ml' && radio.checked}>
           <Radio
             type="radio"
             id="ml"

@@ -8,8 +8,6 @@ import InsertItem from '../../molecules/InsertItem';
 import {} from './styles';
 
 const List = () => {
-  // const [list, setList] = useState([]);
-  // const [listPrin, setListPrint] = useState([]);
   const dispatch = useDispatch();
   const list = useSelector(state => state.list);
   console.log('list: ', list);
@@ -20,7 +18,7 @@ const List = () => {
 
   return (
     <>
-      <ListItems data={list} />
+      <ListItems />
       <InsertItem onCreate={handleList} />
     </>
   );

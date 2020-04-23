@@ -8,4 +8,5 @@ export const color = {
   green: '#00B34F',
   black: '#000',
   white: '#fff',
+  grayLight: '#ccc',
 };
