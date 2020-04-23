@@ -21,6 +21,10 @@ const List = ({ showMore }) => {
     dispatch(MapDispachToActions.editToList(item));
   };
 
+  const handleToDelete = item => {
+    dispatch(MapDispachToActions.deleteToList(item));
+  };
+
   const handlePrint = item => {
     dispatch(MapDispachToActions.editToPrint(item));
   };
@@ -49,7 +53,9 @@ const List = ({ showMore }) => {
     setShowLoadMore(hasMore);
   }, [page, groupBy, items]);
 
-  const handleDelete = () => {};
+  const handleDelete = id => {
+    handleToDelete(id);
+  };
 
   const handleEdit = id => {
     setId(id);
@@ -61,7 +67,6 @@ const List = ({ showMore }) => {
   };
 
   const handleCheck = item => {
-    console.log('item: ', item);
     handlePrint(item);
   };
 

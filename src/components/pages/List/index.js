@@ -20,7 +20,6 @@ const List = () => {
   };
 
   const handleLocalstorage = toList => {
-    // localStorage.setItem('list', null);
     localStorage.setItem('list', JSON.stringify(toList));
   };
 

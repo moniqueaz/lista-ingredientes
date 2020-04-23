@@ -23,7 +23,11 @@ const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
         >
           <FaEdit />
         </Button>
-        <Button type="button" onClick={onDelete} className="item__icon--delete">
+        <Button
+          type="button"
+          onClick={() => onDelete(id)}
+          className="item__icon--delete"
+        >
           <FaTrash />
         </Button>
       </Icons>

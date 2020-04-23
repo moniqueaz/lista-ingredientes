@@ -3,7 +3,6 @@ export default function list(state = [], action) {
     case 'MOUNT_TO_LIST':
       return [...state, action.list];
     case 'SET_TO_LIST':
-      console.log('action: ', action);
       return action.list;
     case 'EDIT_TO_LIST':
       const newList = state.map(item => {
@@ -14,6 +13,11 @@ export default function list(state = [], action) {
         }
       });
       return [...newList];
+    case 'DELETE_TO_LIST':
+      const newDeleteList = state.filter(item => {
+        return item.id !== action.id;
+      });
+      return [...newDeleteList];
     default:
       return state;
   }

@@ -19,6 +19,13 @@ export function editToList(item) {
   };
 }
 
+export function deleteToList(id) {
+  return {
+    type: 'DELETE_TO_LIST',
+    id,
+  };
+}
+
 export function editToPrint(item) {
   return {
     type: 'EDIT_TO_PRINT',
