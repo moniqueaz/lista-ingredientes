@@ -6,7 +6,6 @@ export const Create = styled.form`
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  padding: 20px;
 `;
 
 export const Input = styled.input`
@@ -33,7 +32,6 @@ export const Button = styled.button`
   color: ${color.green};
   width: 75px;
   height: 35px;
-  // align-self: stretch;
   display: flex;
   justify-content: center;
   background-color: ${color.blue};

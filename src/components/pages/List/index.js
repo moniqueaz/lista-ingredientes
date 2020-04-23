@@ -34,8 +34,10 @@ const List = () => {
 
   return (
     <Container>
-      <ListItems />
       <InsertItem onCreate={handleList} />
+      <div className="list__items">
+        <ListItems />
+      </div>
     </Container>
   );
 };

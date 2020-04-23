@@ -12,9 +12,7 @@ const animateIn = keyframes`
   }
 `;
 
-export const ListItems = styled.ul`
-  margin-bottom: 30px;
-`;
+export const ListItems = styled.ul``;
 
 export const ItemList = styled.li`
   animation-name: ${animateIn};
@@ -27,9 +25,4 @@ export const ItemList = styled.li`
   animation-fill-mode: both;
   transform-origin: 50% 0;
   height: 100%;
-
-  & + li {
-    // margin-top: 10px;
-    // border-top: 1px solid ${color.yellowDark};
-  }
 `;
