@@ -5,22 +5,8 @@ export const Create = styled.form`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid ${color.yellowDark};
-  border-radius: 30px;
-  height: 50px;
   overflow: hidden;
-  padding-left: 15px;
-  position: relative;
-  &:after {
-    content: '';
-    height: 35px;
-    width: 1px;
-    position: absolute;
-    top: 50%;
-    right: 191px;
-    background-color: ${color.yellowDark};
-    transform: translateY(-50%);
-  }
+  padding: 20px;
 `;
 
 export const Input = styled.input`
@@ -33,6 +19,7 @@ export const Input = styled.input`
   text-transform: uppercase;
   color: ${color.blue};
   font-weight: bold;
+  border: 1px solid ${color.gray};
 
   &::placeholder {
     color: ${color.yellowDark};
@@ -44,14 +31,14 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   color: ${color.green};
-  width: 55px;
-  align-self: stretch;
+  width: 75px;
+  height: 35px;
+  // align-self: stretch;
   display: flex;
   justify-content: center;
-  svg {
-    width: 40px;
-    height: 40px;
-  }
+  background-color: ${color.blue};
+  color: ${color.white};
+  border-radius: 4px;
 `;
 
 export const Metric = styled.div`
@@ -69,7 +56,7 @@ export const MetricItem = styled.div`
   align-items: center;
   padding: 5px;
   font-weight: bold;
-  color: ${props => (props.checked ? color.blue : color.grayLight)};
+  color: ${props => (props.checked ? color.blue : color.gray)};
   height: 100%;
   width: 50px;
   flex: 0 0 50px;
@@ -79,4 +66,13 @@ export const Radio = styled.input`
   appearance: none;
 `;
 
-export const Label = styled.label``;
+export const Label = styled.label`
+  border: 1px solid ${color.grayLight};
+  width: 50%;
+  flex: 1 1 50%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+`;

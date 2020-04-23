@@ -1,8 +1,6 @@
 export default function print(state = [], action) {
   switch (action.type) {
-    case 'EDIT_TO_PRINT':
-      console.log('i: ', action);
-      console.log('state.length: ', state.length);
+    case 'MOUNT_TO_PRINT':
       if (state.length) {
         const newList = state.filter(item => {
           return item.id !== action.item.id;
@@ -15,6 +13,8 @@ export default function print(state = [], action) {
       } else {
         return [action.item];
       }
+    case 'EDIT_TO_PRINT':
+
     default:
       return state;
   }

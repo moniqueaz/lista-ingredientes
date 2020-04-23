@@ -30,6 +30,6 @@ export const ItemList = styled.li`
 
   & + li {
     // margin-top: 10px;
-    border-top: 1px solid ${color.yellowDark};
+    // border-top: 1px solid ${color.yellowDark};
   }
 `;

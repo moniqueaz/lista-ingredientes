@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheck } from 'react-icons/fa';
 import { uuid } from 'uuidv4';
 
 import {
@@ -83,7 +83,7 @@ const InsertItem = ({ onCreate, data }) => {
         </MetricItem>
       </Metric>
       <Button type="submit">
-        <FaCheckCircle />
+        <FaCheck />
       </Button>
     </Create>
   );

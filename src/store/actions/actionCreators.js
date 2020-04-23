@@ -26,6 +26,13 @@ export function deleteToList(id) {
   };
 }
 
+export function mountToPrint(item) {
+  return {
+    type: 'MOUNT_TO_PRINT',
+    item,
+  };
+}
+
 export function editToPrint(item) {
   return {
     type: 'EDIT_TO_PRINT',

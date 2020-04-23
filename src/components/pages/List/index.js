@@ -5,7 +5,7 @@ import * as MapDispachToActions from '../../../store/actions/actionCreators';
 import ListItems from '../../organisms/List';
 import InsertItem from '../../molecules/InsertItem';
 
-import {} from './styles';
+import { Container } from './styles';
 
 const List = () => {
   const dispatch = useDispatch();
@@ -33,10 +33,10 @@ const List = () => {
   }, [list]);
 
   return (
-    <>
+    <Container>
       <ListItems />
       <InsertItem onCreate={handleList} />
-    </>
+    </Container>
   );
 };
 

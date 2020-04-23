@@ -11,7 +11,6 @@ export const Item = styled.div`
   display: flex;
   justify-contente: flex-start;
   align-items: center;
-  background-color: ${color.white};
 
   color: ${color.blue};
   text-transform: uppercase;

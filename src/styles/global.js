@@ -30,7 +30,7 @@ body{
 
 body, input, button{
   color: ${color.black};
-  font-size: 20px;
+  font-size: 14px;
   font-family: 'Roboto', sans-serif;
 }
 

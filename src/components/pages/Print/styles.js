@@ -2,10 +2,14 @@ import styled from 'styled-components';
 import { color } from '../../../styles/variables';
 
 export const Container = styled.div`
-  width: 500px;
+  width: 100%;
   height: calc(100vh - 200px);
   margin: 0 auto;
   background-color: ${color.primary};
+
+  @media (min-width: 1024px) {
+    width: 500px;
+  }
   .print {
     &__metric {
       display: flex;
@@ -17,6 +21,10 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div``;
+
+export const Form = styled.form``;
+
+export const Button = styled.button``;
 
 export const List = styled.ul`
   margin-left: 20px;
@@ -37,6 +45,13 @@ export const Item = styled.li`
 
 export const Input = styled.input`
   width: 50px;
+  border: 0;
+  border-bottom: 1px solid black;
+  text-align: right;
+  background-color: transparent;
+  @media print {
+    border: 0;
+  }
 `;
 export const Metric = styled.span`
   margin-left: 10px;

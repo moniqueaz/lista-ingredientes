@@ -26,7 +26,7 @@ const List = ({ showMore }) => {
   };
 
   const handlePrint = item => {
-    dispatch(MapDispachToActions.editToPrint(item));
+    dispatch(MapDispachToActions.mountToPrint(item));
   };
 
   const handleLoadMore = () => {
