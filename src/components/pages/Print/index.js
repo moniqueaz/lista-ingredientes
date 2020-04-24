@@ -33,21 +33,33 @@ const Print = () => {
   const handleSubmit = () => {
     window.print();
   };
-  const handleLink = () => {};
+  const handleLink = () => {
+    history.push('/');
+  };
 
   return (
     <>
       {print.length !== 0 && (
         <Container>
           <Form onSubmit={handleSubmit}>
-            <Button type="submit">
-              <span>Imprimir</span>
-              <FaPrint />
-            </Button>
+            <div className="print__button">
+              <Button
+                type="button"
+                onClick={handleLink}
+                className="print__button-left"
+              >
+                <FaArrowLeft />
+                <span>Voltar</span>
+              </Button>
+              <Button type="submit" className="print__button-print">
+                <span>Imprimir</span>
+                <FaPrint />
+              </Button>
+            </div>
             <List>
               {print.map(item => {
                 return (
-                  <Item>
+                  <Item key={item.id}>
                     <div className="print__item">
                       <Name>{item.name}</Name>
                       <div className="print__metric">

@@ -40,7 +40,26 @@ export const Container = styled.div`
 
 export const Header = styled.div``;
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  .print {
+    &__button {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 50px;
+      &-lef {
+        span {
+          margin-left: 10px;
+        }
+      }
+      &-print {
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+`;
 
 export const Button = styled.button`
   background-color: ${color.blue};
@@ -52,12 +71,9 @@ export const Button = styled.button`
   font-size: 14px;
   text-transform: uppercase;
 
-  diplay: fles;
+  diplay: flex;
   justify-content: center;
   align-items: center;
-  span {
-    margin-right: 10px;
-  }
 
   @media print {
     display: none;
