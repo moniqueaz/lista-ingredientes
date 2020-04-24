@@ -57,8 +57,8 @@ const List = ({
     onCreate(itemEdit);
   };
 
-  const handleCheck = item => {
-    onCheck(item);
+  const handleCheck = (check, item) => {
+    onCheck(check, item);
   };
 
   return (

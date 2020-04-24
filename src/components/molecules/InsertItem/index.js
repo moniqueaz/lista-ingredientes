@@ -34,6 +34,8 @@ const InsertItem = ({ onCreate, data }) => {
       id: data.id ? data.id : uuid(),
       name: ingredient,
       metric: metric,
+      value: '',
+      isCheck: false,
     });
     setMetric('kg');
     setIngredient('');

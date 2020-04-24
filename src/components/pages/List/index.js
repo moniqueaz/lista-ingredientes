@@ -9,7 +9,9 @@ import { Container } from './styles';
 
 const List = () => {
   const dispatch = useDispatch();
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(
+    localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
+  );
   const [id, setId] = useState('');
   const [page, setPage] = useState(1);
 
@@ -31,7 +33,6 @@ const List = () => {
         return itemList;
       }
     });
-    handleLocalstorage([...newList]);
     setList([...newList]);
   };
 
@@ -39,12 +40,16 @@ const List = () => {
     const newList = list.filter(item => {
       return item.id !== id;
     });
-    handleLocalstorage([...newList]);
     setList([...newList]);
   };
 
-  const handlePrint = item => {
-    dispatch(MapDispachToActions.mountToPrint(item));
+  const handlePrint = items => {
+    const newList = items.filter(item => item.isCheck);
+    dispatch(MapDispachToActions.mountToPrint(newList));
+  };
+
+  const editPrint = (item, isCheck) => {
+    dispatch(MapDispachToActions.editToPrint(item, isCheck));
   };
 
   const handleDelete = item => {
@@ -64,13 +69,32 @@ const List = () => {
     return JSON.parse(localStorage.getItem('list'));
   };
 
-  const handleCheck = item => {
-    handlePrint(item);
+  const handleCheck = (isCheck, item) => {
+    const { id, name, metric, value } = item;
+    const newList = list.map(itemList => {
+      if (itemList.id === item.id) {
+        return {
+          id,
+          name,
+          metric,
+          value,
+          isCheck,
+        };
+      } else {
+        return itemList;
+      }
+    });
+
+    setList([...newList]);
+    editPrint(item, isCheck);
   };
   useEffect(() => {
-    const storage = getLocalstorage();
-    storage && setList(storage);
+    handlePrint(list);
   }, []);
+
+  useEffect(() => {
+    handleLocalstorage(list);
+  }, [list]);
 
   return (
     <Container>

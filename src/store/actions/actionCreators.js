@@ -26,16 +26,17 @@ export function deleteToList(id) {
   };
 }
 
-export function mountToPrint(item) {
+export function mountToPrint(list) {
   return {
     type: 'MOUNT_TO_PRINT',
-    item,
+    list,
   };
 }
 
-export function editToPrint(item) {
+export function editToPrint(item, isCheck) {
   return {
     type: 'EDIT_TO_PRINT',
     item,
+    isCheck,
   };
 }

@@ -1,20 +1,15 @@
 export default function print(state = [], action) {
   switch (action.type) {
     case 'MOUNT_TO_PRINT':
-      if (state.length) {
-        const newList = state.filter(item => {
-          return item.id !== action.item.id;
-        });
-        if (state.length !== newList.length) {
-          return [...newList];
-        } else {
-          return [...state, action.item];
-        }
-      } else {
-        return [action.item];
-      }
+      return [...action.list];
     case 'EDIT_TO_PRINT':
-
+      console.log('action: ', action);
+      if (action.isCheck) {
+        return [...state, action.item];
+      } else {
+        const result = state.filter(item => item.id !== action.item.id);
+        return [...result];
+      }
     default:
       return state;
   }

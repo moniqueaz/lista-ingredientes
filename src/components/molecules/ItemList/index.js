@@ -5,21 +5,22 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Item, Name, Icons, Input, Button } from './styles';
 
 const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
-  const { name, id } = data;
-  const [check, setCheck] = useState(false);
+  const { name, id, isCheck } = data;
+  const [check, setCheck] = useState(isCheck);
 
-  const handleChecked = item => {
+  const handleChecked = (e, item) => {
     setCheck(!check);
-    onCheck(item);
+    onCheck(e.target.checked, item);
   };
 
   return (
     <Item htmlFor={id} check={check}>
       <Input
         type="checkbox"
-        onChange={e => handleChecked(data)}
+        onChange={e => handleChecked(e, data)}
         name={name}
         id={id}
+        checked={isCheck}
       />
       <Name>{name}</Name>
       {!check && (
