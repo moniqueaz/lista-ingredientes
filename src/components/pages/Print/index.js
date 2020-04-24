@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { FaPrint, FaArrowLeft } from 'react-icons/fa';
+import { FaPrint, FaBan } from 'react-icons/fa';
 import { format } from 'date-fns';
 import * as MapDispachToActions from '../../../store/actions/actionCreators';
 
@@ -19,37 +19,40 @@ import {
 
 const Print = () => {
   const print = useSelector(state => state.print);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const history = useHistory();
 
-  const handlePrint = () => {
-    // dispatch(MapDispachToActions.editToPrint());
-  };
+  // const handlePrint = item => {
+  //   dispatch(MapDispachToActions.editToPrint(item));
+  // };
 
   useEffect(() => {
     !print.length && history.push('/');
   }, []);
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault();
     window.print();
   };
   const handleLink = () => {
     history.push('/');
   };
 
+  const afterPrint = e => {};
+
   return (
     <>
       {print.length !== 0 && (
-        <Container>
-          <Form onSubmit={handleSubmit}>
+        <Container onafterprint={e => afterPrint(e)}>
+          <Form onSubmit={e => handleSubmit(e)}>
             <div className="print__button">
               <Button
                 type="button"
                 onClick={handleLink}
-                className="print__button-left"
+                className="print__button-ban"
               >
-                <FaArrowLeft />
-                <span>Voltar</span>
+                <FaBan />
+                <span>Cancelar</span>
               </Button>
               <Button type="submit" className="print__button-print">
                 <span>Imprimir</span>

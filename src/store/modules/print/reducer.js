@@ -3,7 +3,6 @@ export default function print(state = [], action) {
     case 'MOUNT_TO_PRINT':
       return [...action.list];
     case 'EDIT_TO_PRINT':
-      console.log('action: ', action);
       if (action.isCheck) {
         return [...state, action.item];
       } else {

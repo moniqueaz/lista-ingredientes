@@ -47,7 +47,9 @@ export const Form = styled.form`
       justify-content: space-between;
       align-items: center;
       padding: 20px 0 50px;
-      &-lef {
+      &-ban {
+        width: 150px;
+        background-color: ${color.grayLighter};
         span {
           margin-left: 10px;
         }
