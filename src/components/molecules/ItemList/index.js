@@ -26,14 +26,14 @@ const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
         <Icons className="item__icon">
           <Button
             type="button"
-            onClick={() => onEdit(id)}
+            onClick={() => onEdit(data)}
             className="item__icon--edit"
           >
             <FaEdit />
           </Button>
           <Button
             type="button"
-            onClick={() => onDelete(id)}
+            onClick={() => onDelete(data)}
             className="item__icon--delete"
           >
             <FaTrash />

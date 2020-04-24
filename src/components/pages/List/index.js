@@ -9,17 +9,14 @@ import { Container } from './styles';
 
 const List = () => {
   const dispatch = useDispatch();
-  const list = useSelector(state => state.list);
+  const [list, setList] = useState([]);
   const [id, setId] = useState('');
   const [page, setPage] = useState(1);
 
   const handleList = item => {
     setPage(page + 1);
-    dispatch(MapDispachToActions.mountToList(item));
-  };
-
-  const handleSetList = toList => {
-    dispatch(MapDispachToActions.setToList(toList));
+    setList([...list, item]);
+    handleLocalstorage([...list, item]);
   };
 
   const handleLocalstorage = toList => {
@@ -27,41 +24,52 @@ const List = () => {
   };
 
   const handleToEdit = item => {
-    dispatch(MapDispachToActions.editToList(item));
+    const newList = list.map(itemList => {
+      if (itemList.id === item.id) {
+        return { ...item };
+      } else {
+        return itemList;
+      }
+    });
+    handleLocalstorage([...newList]);
+    setList([...newList]);
   };
 
-  const handleToDelete = item => {
-    dispatch(MapDispachToActions.deleteToList(item));
+  const handleToDelete = id => {
+    const newList = list.filter(item => {
+      return item.id !== id;
+    });
+    handleLocalstorage([...newList]);
+    setList([...newList]);
   };
 
   const handlePrint = item => {
     dispatch(MapDispachToActions.mountToPrint(item));
   };
 
-  const handleDelete = id => {
-    handleToDelete(id);
+  const handleDelete = item => {
+    handleToDelete(item.id);
   };
 
-  const handleEdit = id => {
-    setId(id);
+  const handleEdit = item => {
+    setId(item.id);
   };
 
-  const hendleCreate = itemEdit => {
+  const hendleCreate = item => {
     setId('');
-    handleToEdit(itemEdit);
+    handleToEdit(item);
+  };
+
+  const getLocalstorage = () => {
+    return JSON.parse(localStorage.getItem('list'));
   };
 
   const handleCheck = item => {
     handlePrint(item);
   };
-
-  // useEffect(() => {
-  //   handleLocalstorage(list);
-  // }, [list]);
-
   useEffect(() => {
-    const storage = JSON.parse(localStorage.getItem('list'));
-    storage && handleSetList(storage);
+    const storage = getLocalstorage();
+    storage && setList(storage);
   }, []);
 
   return (

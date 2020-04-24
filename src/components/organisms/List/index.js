@@ -45,12 +45,12 @@ const List = ({
     setShowLoadMore(hasMore);
   }, [page, groupBy, items]);
 
-  const handleDelete = id => {
-    onDelete(id);
+  const handleDelete = item => {
+    onDelete(item);
   };
 
-  const handleEdit = id => {
-    onEdit(id);
+  const handleEdit = item => {
+    onEdit(item);
   };
 
   const hendleCreate = itemEdit => {

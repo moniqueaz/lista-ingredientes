@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { FaPrint } from 'react-icons/fa';
+import { FaPrint, FaArrowLeft } from 'react-icons/fa';
 import { format } from 'date-fns';
 import * as MapDispachToActions from '../../../store/actions/actionCreators';
 
@@ -33,6 +33,7 @@ const Print = () => {
   const handleSubmit = () => {
     window.print();
   };
+  const handleLink = () => {};
 
   return (
     <>

@@ -29,6 +29,7 @@ const InsertItem = ({ onCreate, data }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log('teste');
     onCreate({
       id: data.id ? data.id : uuid(),
       name: ingredient,
