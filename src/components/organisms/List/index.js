@@ -1,33 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import * as MapDispachToActions from '../../../store/actions/actionCreators';
 import Item from '../../molecules/ItemList';
 import InsertItem from '../../molecules/InsertItem';
 
 import { ListItems, ItemList } from './styles';
 
-const List = ({ showMore }) => {
-  const dispatch = useDispatch();
-  const list = useSelector(state => state.list);
+const List = ({
+  showMore,
+  id,
+  onCreate,
+  onEdit,
+  onDelete,
+  onCheck,
+  list,
+  pagination,
+}) => {
   const [items, setItems] = useState(list);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(pagination);
   const groupBy = list.length;
   const [itemsLength, setItemsLength] = useState(groupBy);
   const [showLoadMore, setShowLoadMore] = useState(showMore);
-  const [id, setId] = useState('');
-
-  const handleToEdit = item => {
-    dispatch(MapDispachToActions.editToList(item));
-  };
-
-  const handleToDelete = item => {
-    dispatch(MapDispachToActions.deleteToList(item));
-  };
-
-  const handlePrint = item => {
-    dispatch(MapDispachToActions.mountToPrint(item));
-  };
 
   const handleLoadMore = () => {
     if (showMoreItems()) {
@@ -42,7 +34,7 @@ const List = ({ showMore }) => {
   };
 
   useEffect(() => {
-    setShowLoadMore(showMore);
+    setPage(pagination);
     setItems(list);
   }, [showMore, list]);
 
@@ -54,20 +46,19 @@ const List = ({ showMore }) => {
   }, [page, groupBy, items]);
 
   const handleDelete = id => {
-    handleToDelete(id);
+    onDelete(id);
   };
 
   const handleEdit = id => {
-    setId(id);
+    onEdit(id);
   };
 
   const hendleCreate = itemEdit => {
-    setId('');
-    handleToEdit(itemEdit);
+    onCreate(itemEdit);
   };
 
   const handleCheck = item => {
-    handlePrint(item);
+    onCheck(item);
   };
 
   return (
@@ -102,6 +93,12 @@ const List = ({ showMore }) => {
 
 List.defaultProps = {
   showMore: false,
+  onCheck: () => undefined,
+  onCreate: () => undefined,
+  onDelete: () => undefined,
+  onEdit: () => undefined,
+  list: [],
+  pagination: 1,
 };
 
 List.propTypes = {

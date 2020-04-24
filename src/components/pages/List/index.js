@@ -10,8 +10,11 @@ import { Container } from './styles';
 const List = () => {
   const dispatch = useDispatch();
   const list = useSelector(state => state.list);
+  const [id, setId] = useState('');
+  const [page, setPage] = useState(1);
 
   const handleList = item => {
+    setPage(page + 1);
     dispatch(MapDispachToActions.mountToList(item));
   };
 
@@ -21,6 +24,36 @@ const List = () => {
 
   const handleLocalstorage = toList => {
     localStorage.setItem('list', JSON.stringify(toList));
+  };
+
+  const handleToEdit = item => {
+    dispatch(MapDispachToActions.editToList(item));
+  };
+
+  const handleToDelete = item => {
+    dispatch(MapDispachToActions.deleteToList(item));
+  };
+
+  const handlePrint = item => {
+    dispatch(MapDispachToActions.mountToPrint(item));
+  };
+
+  const handleDelete = item => {
+    handlePrint(item);
+    handleToDelete(item.id);
+  };
+
+  const handleEdit = id => {
+    setId(id);
+  };
+
+  const hendleCreate = itemEdit => {
+    setId('');
+    handleToEdit(itemEdit);
+  };
+
+  const handleCheck = item => {
+    handlePrint(item);
   };
 
   useEffect(() => {
@@ -36,7 +69,15 @@ const List = () => {
     <Container>
       <InsertItem onCreate={handleList} />
       <div className="list__items">
-        <ListItems />
+        <ListItems
+          list={list}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+          onCreate={hendleCreate}
+          onCheck={handleCheck}
+          id={id}
+          pagination={page}
+        />
       </div>
     </Container>
   );
