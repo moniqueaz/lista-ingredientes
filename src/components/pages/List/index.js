@@ -38,9 +38,8 @@ const List = () => {
     dispatch(MapDispachToActions.mountToPrint(item));
   };
 
-  const handleDelete = item => {
-    handlePrint(item);
-    handleToDelete(item.id);
+  const handleDelete = id => {
+    handleToDelete(id);
   };
 
   const handleEdit = id => {
@@ -56,14 +55,14 @@ const List = () => {
     handlePrint(item);
   };
 
+  // useEffect(() => {
+  //   handleLocalstorage(list);
+  // }, [list]);
+
   useEffect(() => {
-    if (list.length) {
-      handleLocalstorage(list);
-    } else {
-      const storage = JSON.parse(localStorage.getItem('list'));
-      storage && handleSetList(storage);
-    }
-  }, [list]);
+    const storage = JSON.parse(localStorage.getItem('list'));
+    storage && handleSetList(storage);
+  }, []);
 
   return (
     <Container>
