@@ -7,7 +7,8 @@ import { FaPrint } from 'react-icons/fa';
 import { Container, List, Item, Header, Total } from './styles';
 
 const PrintList = () => {
-  const print = useSelector(state => state.print);
+  const { print } = useSelector(state => state.print);
+  console.log('print: ', print);
 
   return (
     <Container>

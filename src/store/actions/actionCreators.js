@@ -40,3 +40,10 @@ export function editToPrint(item, isCheck) {
     isCheck,
   };
 }
+
+export function mountToDate(date) {
+  return {
+    type: 'MOUNT_TO_DATE',
+    date,
+  };
+}

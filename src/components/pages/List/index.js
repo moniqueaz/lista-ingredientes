@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import { isEqual, format } from 'date-fns';
 import * as MapDispachToActions from '../../../store/actions/actionCreators';
 import ListItems from '../../organisms/List';
 import InsertItem from '../../molecules/InsertItem';
@@ -9,6 +10,7 @@ import { Container } from './styles';
 
 const List = () => {
   const dispatch = useDispatch();
+  const { date } = useSelector(state => state.print);
   const [list, setList] = useState(
     localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
   );
@@ -52,6 +54,10 @@ const List = () => {
     dispatch(MapDispachToActions.editToPrint(item, isCheck));
   };
 
+  const handleDate = date => {
+    dispatch(MapDispachToActions.mountToDate(date));
+  };
+
   const handleDelete = item => {
     handleToDelete(item.id);
   };
@@ -88,12 +94,41 @@ const List = () => {
     setList([...newList]);
     editPrint(item, isCheck);
   };
+
+  const validDate = () => {
+    const dateSave = Date.parse(date ? date : localStorage.getItem('date'));
+    const newDate = new Date(
+      new Date().getFullYear(),
+      new Date().getMonth(),
+      new Date().getDate()
+    );
+    handleDate(newDate);
+    localStorage.setItem('date', newDate);
+
+    return isEqual(dateSave, newDate);
+  };
+
   useEffect(() => {
-    handlePrint(list);
+    const result = validDate();
+    console.log('result: ', result);
+    if (!result) {
+      setList(
+        list.map(item => {
+          const { id, name, metric } = item;
+          return {
+            id,
+            name,
+            metric,
+            isCheck: false,
+          };
+        })
+      );
+    }
   }, []);
 
   useEffect(() => {
     handleLocalstorage(list);
+    handlePrint(list);
   }, [list]);
 
   return (

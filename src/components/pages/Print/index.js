@@ -18,7 +18,7 @@ import {
 } from './styles';
 
 const Print = () => {
-  const print = useSelector(state => state.print);
+  const { print } = useSelector(state => state.print);
   // const dispatch = useDispatch();
   const history = useHistory();
 

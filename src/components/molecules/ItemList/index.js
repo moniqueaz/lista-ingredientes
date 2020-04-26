@@ -13,6 +13,10 @@ const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
     onCheck(e.target.checked, item);
   };
 
+  useEffect(() => {
+    setCheck(isCheck);
+  }, [isCheck]);
+
   return (
     <Item htmlFor={id} check={check}>
       <Input
