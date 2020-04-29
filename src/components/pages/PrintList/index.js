@@ -8,8 +8,6 @@ import { Container, List, Item, Header, Total } from './styles';
 
 const PrintList = () => {
   const { print } = useSelector(state => state.print);
-  console.log('print: ', print);
-
   return (
     <Container>
       <Header>

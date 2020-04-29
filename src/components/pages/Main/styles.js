@@ -12,17 +12,19 @@ export const Container = styled.div`
 `;
 
 export const SessionLeft = styled.div`
-  flex: 0 0 calc(60% - 20px);
-  order: 1;
+  flex: 1 1 100%;
+  width: 100%;
   @media (min-width: 1024px) {
-    order: 0;
+    flex: 0 0 calc(60% - 20px);
   }
 `;
 
 export const SessionRight = styled.div`
-  flex: 0 0 40%;
-  order: 0;
+  flex: 1 1 100%;
+  margin-top: 20px;
+  width: 100%;
   @media (min-width: 1024px) {
-    order: 0;
+    flex: 0 0 40%;
+    margin-top: 0;
   }
 `;

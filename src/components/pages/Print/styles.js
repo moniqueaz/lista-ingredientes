@@ -87,6 +87,8 @@ export const List = styled.ul`
   background-color: ${color.primary};
   margin: 0 auto;
   padding: 20px;
+  max-height: calc(100vh - 370px);
+  overflow-y: scroll;
 
   @media (min-width: 1024px) {
     width: 500px;

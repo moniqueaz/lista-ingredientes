@@ -10,6 +10,7 @@ export const Item = styled.label`
   display: flex;
   justify-contente: flex-start;
   align-items: center;
+  cursor: pointer;
 
   color: ${color.blue};
   text-transform: uppercase;

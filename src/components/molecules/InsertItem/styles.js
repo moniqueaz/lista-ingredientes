@@ -6,6 +6,10 @@ export const Create = styled.form`
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+  flex-wrap: wrap;
+  @media (min-width: 1024px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Input = styled.input`
@@ -19,6 +23,11 @@ export const Input = styled.input`
   color: ${color.blue};
   font-weight: bold;
   border: 1px solid ${color.gray};
+  flex: 1 1 100%;
+
+  @media (min-width: 1024px) {
+    flex: 1 0 auto;
+  }
 
   &::placeholder {
     color: ${color.yellowDark};
@@ -37,6 +46,10 @@ export const Button = styled.button`
   background-color: ${color.blue};
   color: ${color.white};
   border-radius: 4px;
+  flex: 0 0 50px;
+  @media (min-width: 1024px) {
+    flex: 0 0 50px;
+  }
 `;
 
 export const Metric = styled.div`

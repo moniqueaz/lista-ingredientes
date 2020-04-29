@@ -71,10 +71,6 @@ const List = () => {
     handleToEdit(item);
   };
 
-  const getLocalstorage = () => {
-    return JSON.parse(localStorage.getItem('list'));
-  };
-
   const handleCheck = (isCheck, item) => {
     const { id, name, metric, value } = item;
     const newList = list.map(itemList => {
@@ -93,6 +89,7 @@ const List = () => {
 
     setList([...newList]);
     editPrint(item, isCheck);
+    resetList(!validDate());
   };
 
   const validDate = () => {
@@ -108,10 +105,8 @@ const List = () => {
     return isEqual(dateSave, newDate);
   };
 
-  useEffect(() => {
-    const result = validDate();
-    console.log('result: ', result);
-    if (!result) {
+  const resetList = isReset => {
+    if (isReset) {
       setList(
         list.map(item => {
           const { id, name, metric } = item;
@@ -124,6 +119,11 @@ const List = () => {
         })
       );
     }
+  };
+
+  useEffect(() => {
+    const result = validDate();
+    resetList(!result);
   }, []);
 
   useEffect(() => {
