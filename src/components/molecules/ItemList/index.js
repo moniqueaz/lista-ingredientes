@@ -51,6 +51,9 @@ const ItemList = ({ data, onCheck, onEdit, onDelete }) => {
 
 ItemList.defaultProps = {
   onCheck: () => undefined,
+  onEdit: () => undefined,
+  onDelete: () => undefined,
+  onCheck: () => undefined,
   data: {},
 };
 

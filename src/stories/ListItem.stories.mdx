@@ -10,7 +10,7 @@ Documentação Molecula ListItem
 
 <Preview>
   <Story name="default">
-    <ListItem data={[{name: 'Macarrão'}, {name: 'Feijão'}]}/>
+    <ListItem list={[{name: 'Macarrão', id:'sdfsdfs', isCheck:false},{name: 'Macarrão', id:'sdfs545dfs', isCheck:false},{name: 'Macarrão', id:'sdfs6565dfs', isCheck:false}]}/>
   </Story>
 </Preview>
 
@@ -27,7 +27,7 @@ Documentação Molecula ListItem
 
 <Story name="knobs" parameters={{ decorators: [withKnobs] }}>
   <ListItem
-    data={object('data', [{name: 'Macarrão'}, {name: 'Feijão'}])}
+    list={object('data', [{name: 'Macarrão', id:'sdfsdfs', isCheck:false},{name: 'Macarrão', id:'sdfsdfs654', isCheck:false}])}
     showMore={boolean('showMore', false)}
   />
 </Story>
