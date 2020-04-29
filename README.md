@@ -1,7 +1,5 @@
 # Lista de Ingredientes
 
-<img src='' width='100%' alt='Telas inicial'/>
-
 > Tela inicial
 
 ### Init Project
@@ -25,8 +23,6 @@ observar e testar todas as possibilidades dos componentes.
 Para rodar o storybook execute `yarn storybook` ou `npm run storybook`. Por padrão ele irá startar os stories
 no seu navegador padrão na porta :9009
 
-<img src='' width='100%' alt='Tela do storybook'/>
-
 > Tela do storybook
 
 ## Tecnologias utilizadas
@@ -34,7 +30,7 @@ no seu navegador padrão na porta :9009
 - React
 - React Router
 - React Hooks
-- Axios
+- Redux
 - Styled Components
 - Prop Types
 - React Icons
